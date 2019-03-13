@@ -5,6 +5,7 @@ pipeline {
         string (description: 'enter Instance Type', name: 'Instance_type')
         string (description: 'enter subnet id', name: 'subnetid')
         string (description: 'enter region name', name: 'region_name')
+        string (description: 'enter Security Group', name: 'sgname')
         choice (choices: ['CI_VPC', 'test1'], description: 'choose key pair?', name: 'keypair_name')
     }
     
