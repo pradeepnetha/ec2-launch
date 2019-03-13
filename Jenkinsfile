@@ -18,10 +18,14 @@ pipeline {
            credentialsId: 'aws key', 
            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])  {    
            git url: 'https://github.com/pradeepnetha/ec2launch.git'
-           sh '''
-                 chmod +x ec2.sh
-                 ./ec2.sh $ami_id $keypair_name $Instance_type $subnetid $region_name
-           '''
+           //sh '''
+             //    chmod +x ec2.sh
+               //  ./ec2.sh $ami_id $keypair_name $Instance_type $subnetid $region_name
+           //'''
+              
+               ./pradeepec2launch.sh $ami_id $keypair_name $Instance_type $subnetid $region_name
+          
+               
                // Show the select input modal
                //echo "${ ami_id }"
                //echo "${key_name}"
