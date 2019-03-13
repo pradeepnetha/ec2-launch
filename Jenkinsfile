@@ -13,12 +13,10 @@ pipeline {
         
         stage ('build') {
            steps {
-           withCredentials([[
-            $class: 'AmazonWebServicesCredentialsBinding',
-            credentialsId: 'aws key',
-            accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {    
+           withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', 
+           accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+           credentialsId: 'aws key', 
+           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])  {    
            git url: 'https://github.com/pradeepnetha/ec2launch.git'
            sh '''
                  chmod +x ec2.sh
